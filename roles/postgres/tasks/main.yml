@@ -1,0 +1,33 @@
+#- name: ddddddd
+#  shell: export LANGUAGE=en_US.UTF-8 && export LANG=en_US.UTF-8 && export LC_ALL=en_US.UTF-8 && locale-gen en_US.UTF-8 && dpkg-reconfigure locales
+  
+  
+#- name: xxxx
+  #shell: dpkg-reconfigure locales
+  
+  
+
+- name: Install postgres
+  apt: name={{ item }} state=present
+  with_items:
+    - postgresql
+    - postgresql-contrib
+    - php5-pgsql
+  notify:
+  - restart apache
+    
+- name: Create test user
+  shell:  sudo -upostgres createuser --encrypted --no-createrole -S --no-createdb {{ postgres_account_name }}
+
+- name: Alter user password
+  shell: sudo -upostgres psql -c"alter user {{ postgres_account_name }} with password '{{ postgres_account_password }}'";
+  
+- name: Create database
+  shell: sudo -upostgres createdb --encoding=UTF8 --locale=en_US.utf8 --owner={{ postgres_account_name }} -T template0 {{ postgres_test_database }}
+
+- name: Set listen_addresses in postgres.conf
+  shell: sed -i "s/.*listen_addresses.*/listen_addresses = '*'/" /etc/postgresql/9.1/main/postgresql.conf
+  
+- name: Add host IP to pg_hba.conf
+  shell: echo "host all all {{ base_ip }}/32 trust" >> /etc/postgresql/9.1/main/pg_hba.conf 
+

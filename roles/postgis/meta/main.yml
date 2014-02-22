@@ -1,0 +1,4 @@
+dependencies:
+  - { role: common }
+ # Something wrong here. This role shouldn't be executed twice
+# - { role: postgres } 

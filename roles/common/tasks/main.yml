@@ -1,0 +1,24 @@
+- name: Install required components
+  apt: name={{ item }} state=present
+  with_items:
+    - git
+    - vim
+    - curl
+    - zip
+    - unzip
+    - mc
+    - sqlite3
+
+- name: Install dot files
+  copy: src={{ item }} dest=/home/vagrant/.{{ item }}
+  with_items:
+    - bashrc
+    - gitconfig
+    - vimrc
+
+  
+- name: Copy locale
+  copy: src=locale dest=/etc/default/locale
+  
+- name: Generate locale
+  command: locale-gen en_US.UTF-8

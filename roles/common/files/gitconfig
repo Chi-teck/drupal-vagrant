@@ -1,0 +1,29 @@
+# vim:ft=gitconfig
+
+[color]
+        ui = auto
+        grep = auto
+[color "diff"]
+	meta = magenta
+[color "grep"]
+        filename   = magenta
+        linenumber = green
+        match      = red bold
+[core]
+        excludesfile = ~/.gitignore
+        pager=less -FXRS
+        editor = gvim +0 -f
+[grep]
+        lineNumber = true
+[alias]
+        st=status
+        l=log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+        g=grep
+        ack="grep --break --heading -A3 -B3"
+        rmbranch = "!f(){ git branch -d ${1} && git push origin --delete ${1}; };f"
+[merge]
+        tool=gvimdiff
+[clean]
+        requireForce = false
+[push]
+        default = tracking

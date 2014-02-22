@@ -1,0 +1,53 @@
+- name: Install required components
+  apt: name={{ item }} state=installed
+  with_items:
+   - apache2
+   - mysql-server
+   - python-mysqldb
+   - php5
+   - php5-mysql
+   - php5-curl
+   - php5-intl
+   - php5-mcrypt
+   - php5-gd
+   - php-apc
+   - php-pear
+   - php5-sqlite
+
+- name: Enable mod rewrite
+  command: a2enmod rewrite
+
+- name: Remove index.html from document root
+  file: path=/var/www/index.html state=absent
+
+- name: Create phpinfo.php file
+  shell: echo '<?php phpinfo();' > /var/www/phpinfo.php
+
+- name: Set mysql root password
+  command: mysqladmin -uroot password {{ mysql_root_passwod }}
+  ignore_errors: True
+  
+- name: Replace default virual host
+  copy: src=default dest=/etc/apache2/sites-available/default owner=root group=root mode=0644
+  
+- name: Set server name
+  shell: echo "ServerName {{ server_name }}" > /etc/apache2/conf.d/fqdn
+       
+- name: Sendmail script
+  template: src=sendmail.php dest=/usr/share/php/sendmail.php owner=root group=root mode=0755
+  
+- name: Create mail directory
+  file: path={{ mail_dir }} state=directory owner=root group=root mode=0777
+  
+- name: Tweak php settings
+  copy: src=tweak.ini dest=/etc/php5/apache2/conf.d/tweak.ini owner=root group=root mode=0755
+  
+- name: Create example virtual host
+  copy: src=vhost_example dest=/etc/apache2/sites-available/example owner=root group=root mode=0755
+  
+- name: Create example directory
+  file: path=/var/www/example state=directory
+  
+- name: Enable example site
+  command: a2ensite example
+  notify: restart apache

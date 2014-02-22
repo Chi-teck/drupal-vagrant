@@ -1,0 +1,2 @@
+- name: download adminer
+  get_url: url=http://sourceforge.net/projects/adminer/files/Adminer/Adminer%20{{ adminer_version }}/adminer-{{ adminer_version }}.php dest=/var/www/adminer.php mode=0644

@@ -1,0 +1,27 @@
+- name: delete phpmyadmin directory
+  file: path=/var/www/phpmyadmin
+        state=absent
+
+- name: download the source tarball
+  get_url: url=http://files.directadmin.com/services/all/phpMyAdmin/phpMyAdmin-{{ phpmyadmin_version }}-all-languages.tar.gz
+           dest=/var/www/phpmyadmin-{{ phpmyadmin_version }}.tar.gz
+           mode=0440
+
+- name: unpack the source tarball
+  command: tar -xzf /var/www/phpmyadmin-{{ phpmyadmin_version }}.tar.gz -C /var/www/
+
+- name: rename the source directory
+  command: mv /var/www/phpMyAdmin-{{ phpmyadmin_version }}-all-languages /var/www/phpmyadmin
+
+- name: Set files permissions
+  file: path=/var/www/phpmyadmin owner=vagrant group=vagrant recurse=yes
+
+- name: delete the archive
+  file: path=/var/www/phpmyadmin-{{ phpmyadmin_version }}.tar.gz
+        state=absent
+
+- name: Create phpmyadmin database
+  shell: mysql -uroot -p{{ mysql_root_passwod }} < /var/www/phpmyadmin/examples/create_tables.sql
+  
+- name: Replace config.inc.php
+  template: src=config.inc.php dest=/var/www/phpmyadmin mode=0644

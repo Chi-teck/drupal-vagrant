@@ -1,0 +1,35 @@
+#
+server_name: sandbox
+
+#
+phpmyadmin_version: 4.1.7
+
+#
+adminer_version: 4.0.3
+
+#
+mysql_root_passwod: 321
+
+#
+drupal_account_name: admin
+
+#
+drupal_account_password: 321
+
+#
+postgres_account_name: u1
+
+#
+postgres_account_password: 321
+
+#
+postgres_test_database: test
+
+# Directory where outgoing emails will be stored.
+mail_dir: /var/log/mail
+
+# IP address of your host system.
+base_ip: 192.168.56.1
+
+#
+xdebug_idkey: phpstorm
