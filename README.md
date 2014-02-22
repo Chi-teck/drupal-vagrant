@@ -30,3 +30,5 @@ Not all of these components are enabled by default. Check out playbook.yml and u
 
 ## Notes
 PHP version depends on which vm box you used. You can change it in Vagrant file. This provision was tested with both Ubuntu 12.04 (precise) and Ubuntu 13.04 (raring) distribution.
+
+[Fixing SSH unknown error when provisioning a Vagrant VM with Ansible](http://www.midwesternmac.com/blogs/jeff-geerling/fixing-ssh-unknown-error-when)
