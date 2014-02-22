@@ -22,6 +22,6 @@
     - phpmyadmin
     - adminer
     - drupal
-    - postgres
-    - postgis
+    #- postgres
+    #- postgis
     - nfs-server

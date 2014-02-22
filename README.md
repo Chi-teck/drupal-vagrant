@@ -21,7 +21,7 @@ Basic LAMP stack using Ansible for provisioning.
 * postgis
 * nfs-server
 
-Not all of these packages are enabled by default. Check out playbook.yml and uncomment required components.
+Not all of these components are enabled by default. Check out playbook.yml and uncomment required roles.
 
 ## Usage
 * cd vagrant-lamp
