@@ -3,11 +3,9 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.hostname = "sandbox"
-  
-  # php 5.3
-  #config.vm.box = "precise32"
-  #config.vm.box_url = "http://files.vagrantup.com/precise32.box"
-  
+
+  STDERR.puts 'ATTENTION: Raring release is not supported anymore!';
+
   # php 5.4
   config.vm.box = "raring32"
   config.vm.box_url = "http://cloud-images.ubuntu.com/vagrant/raring/current/raring-server-cloudimg-i386-vagrant-disk1.box"
