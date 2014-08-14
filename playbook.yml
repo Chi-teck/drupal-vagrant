@@ -10,6 +10,9 @@
   - name: Update apt cache if needed.
     apt: update_cache=yes cache_valid_time=3600
 
+  - name: Create .ssh directory
+    file: path=/home/vagrant/.ssh state=directory
+
   post_tasks:
   - name: Change files owner on document root
     file: path=/var/www owner=vagrant group=vagrant recurse=yes
