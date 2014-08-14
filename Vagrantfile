@@ -5,12 +5,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.hostname = "sandbox"
   
   # php 5.3
-  #config.vm.box = "precise32"
-  #config.vm.box_url = "http://files.vagrantup.com/precise32.box"
-  
-  # php 5.4
-  config.vm.box = "raring32"
-  config.vm.box_url = "http://cloud-images.ubuntu.com/vagrant/raring/current/raring-server-cloudimg-i386-vagrant-disk1.box"
+  config.vm.box = "precise32"
+  config.vm.box_url = "http://files.vagrantup.com/precise32.box"
 
   config.vm.network :private_network, ip: "192.168.56.50"
 
