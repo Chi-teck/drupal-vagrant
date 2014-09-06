@@ -13,5 +13,5 @@
   shell: curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer creates=/usr/local/bin/composer
 
 - name: Kint
-  git: repo=git://github.com/raveren/kint.git
-       dest=/usr/share/php/kint
+  git: repo=git://github.com/raveren/kint.git dest=/usr/share/php/kint accept_hostkey=yes
+

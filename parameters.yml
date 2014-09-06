@@ -2,10 +2,10 @@
 server_name: sandbox
 
 #
-phpmyadmin_version: 4.1.7
+phpmyadmin_version: 4.2.8
 
 #
-adminer_version: 4.0.3
+adminer_version: 4.0.0
 
 #
 mysql_root_passwod: 321

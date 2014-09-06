@@ -28,22 +28,22 @@
   ignore_errors: True
   
 - name: Replace default virual host
-  copy: src=default dest=/etc/apache2/sites-available/default owner=root group=root mode=0644
+  template: src=000-default.conf dest=/etc/apache2/sites-available/000-default.conf owner=root group=root mode=0644
   
-- name: Set server name
-  shell: echo "ServerName {{ server_name }}" > /etc/apache2/conf.d/fqdn
+- name: Tweak apache settings.
+  template: src=tweak.conf dest=/etc/apache2/conf-available/tweak.conf owner=root group=root mode=0644
        
 - name: Sendmail script
-  template: src=sendmail.php dest=/usr/share/php/sendmail.php owner=root group=root mode=0755
+  template: src=sendmail.php dest=/usr/share/php/sendmail.php owner=root group=root mode=0644
   
 - name: Create mail directory
   file: path={{ mail_dir }} state=directory owner=root group=root mode=0777
   
 - name: Tweak php settings
-  copy: src=tweak.ini dest=/etc/php5/apache2/conf.d/tweak.ini owner=root group=root mode=0755
+  copy: src=tweak.ini dest=/etc/php5/apache2/conf.d/tweak.ini owner=root group=root mode=644
   
 - name: Create example virtual host
-  copy: src=vhost_example dest=/etc/apache2/sites-available/example owner=root group=root mode=0755
+  copy: src=vhost_example.conf dest=/etc/apache2/sites-available/example.conf owner=root group=root mode=0644
   
 - name: Create example directory
   file: path=/var/www/example state=directory
@@ -51,3 +51,7 @@
 - name: Enable example site
   command: a2ensite example
   notify: restart apache
+
+- name: Fixed missing php zlib functions
+  copy: src=Tar.php dest=/usr/share/php/Archive/Tar.php owner=root group=root mode=0644
+
