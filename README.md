@@ -29,7 +29,7 @@ Not all of these components are enabled by default. Check out playbook.yml and u
 * vagrant up
 
 ## Notes
-PHP version depends on which branch you have cloned.
+PHP version depends on branch you have cloned.
 
 * PHP 5.3 - Ubuntu 12.04 LTS (precise)
 * PHP 5.4 - Ubuntu 13.04 (raring) - Not supported anymore
