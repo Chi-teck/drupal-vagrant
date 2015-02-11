@@ -14,7 +14,7 @@
   copy: src=drush.complete.sh dest=/etc/bash_completion.d/
   
 - name: Download coder
-  command: drush dl coder --destination=/tmp
+  command: drush dl coder --dev --destination=/tmp
   
 - name: Copy drupal coding standards
   shell: cp -R /tmp/coder/coder_sniffer/Drupal $(pear config-get php_dir)/PHP/CodeSniffer/Standards
