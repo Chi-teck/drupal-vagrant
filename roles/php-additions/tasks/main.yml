@@ -1,7 +1,3 @@
-- name: Pear benchmark
-  shell: pear list -a Benchmark | grep Benchmark || pear install Benchmark
-  ignore_errors: True
-  
 - name: PHP_codeSniffer
   shell: pear list -a PHP_CodeSniffer | grep PHP_CodeSniffer || pear install PHP_CodeSniffer
   ignore_errors: True
