@@ -3,3 +3,15 @@
 
 - name: Kint
   git: repo=git://github.com/raveren/kint.git dest=/usr/share/php/kint accept_hostkey=yes
+
+- name: Create phpmd directory
+  file: path=/usr/share/php/phpmd state=directory
+  
+- name: Install phpmd
+  shell: composer require phpmd/phpmd:@stable -d /usr/share/php/phpmd
+  
+- name: Create a symbolic link to the phpmd executable
+  file: src=/usr/share/php/phpmd/vendor/bin/phpmd dest=/usr/bin/phpmd state=link
+
+- name: Create a symbolic link to the pdepend executable
+  file: src=/usr/share/php/phpmd/vendor/bin/pdepend dest=/usr/bin/pdepend state=link
