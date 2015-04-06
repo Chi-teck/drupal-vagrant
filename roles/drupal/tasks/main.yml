@@ -12,7 +12,7 @@
   
 - name: Create coder directory
   file: path=/usr/share/php/coder state=directory
-  
+
 - name: Install coder
   shell: composer require drupal/coder -d /usr/share/php/coder
   
@@ -32,5 +32,5 @@
   template: src=drupal-install dest=/usr/local/bin/drupal-install owner=root group=root mode=0755
   
 - name: Install drupal
-  shell: (. ~/.profile && cd /var/www && drupal-install d7)
+  shell: (cd /var/www && drupal-install d7)
 
