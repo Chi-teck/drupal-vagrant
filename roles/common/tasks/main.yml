@@ -15,7 +15,7 @@
     - bashrc
     - gitconfig
     - vimrc
-
+    - profile
   
 - name: Copy locale
   copy: src=locale dest=/etc/default/locale

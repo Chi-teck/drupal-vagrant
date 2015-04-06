@@ -1,33 +1,36 @@
-- name: Check out Drush master branch
-  git: repo=https://github.com/drush-ops/drush.git dest=/usr/share/php/drush
+- name: Create drush directory
+  file: path=/usr/share/php/drush state=directory
 
-- name: Install drush dependencies
-  command: composer install -d /usr/share/php/drush
-
-- name: Create a symbolic link to the Drush executable
-  file: src=/usr/share/php/drush/drush dest=/usr/bin/drush state=link
+- name: Install Drush
+  shell: composer require drush/drush:dev-master -d /usr/share/php/drush
   
-- name: Create .drush directory
-  file: path=/home/vagrant/.drush state=directory owner=vagrant group=vagrant mode=0700
+- name: Create a symbolic link to the Drush executable
+  file: src=/usr/share/php/drush/vendor/bin/drush dest=/usr/bin/drush state=link
 
 - name: Enable drush completion
   copy: src=drush.complete.sh dest=/etc/bash_completion.d/
   
-- name: Download coder
-  command: drush dl coder --destination=/tmp
+- name: Create coder directory
+  file: path=/usr/share/php/coder state=directory
   
-- name: Copy drupal coding standards
-  shell: cp -R /tmp/coder/coder_sniffer/Drupal $(pear config-get php_dir)/PHP/CodeSniffer/Standards
+- name: Install coder
+  shell: composer require drupal/coder -d /usr/share/php/coder
+  
+- name: Create a symbolic link to the phpcs executable
+  file: src=/usr/share/php/coder/vendor/bin/phpcs dest=/usr/bin/phpcs state=link
+  
+- name: Create a symbolic link to the phpcbf executable
+  file: src=/usr/share/php/coder/vendor/bin/phpcbf dest=/usr/bin/phpcbf state=link
 
-- name: Install drupalcs drush command  
-  shell: cp /tmp/coder/coder_sniffer/drupalcs.drush.inc /home/vagrant/.drush/
-  
+- name: Install Drupal coding standard
+  shell: phpcs --config-set installed_paths /usr/share/php/coder/vendor/drupal/coder/coder_sniffer
+
 - name: Install DrupalDebug.php
   copy: src=DrupalDebug.php dest=/usr/share/php/DrupalDebug.php owner=root group=root mode=0644
-  
+
 - name: Copy drupal-install script
-  template: src=drupal-install dest=/usr/bin/drupal-install owner=root group=root mode=0755
+  template: src=drupal-install dest=/usr/local/bin/drupal-install owner=root group=root mode=0755
   
 - name: Install drupal
-  shell: (cd /var/www && drupal-install d7)
- 
+  shell: (. ~/.profile && cd /var/www && drupal-install d7)
+

@@ -1,7 +1,3 @@
-- name: PHP_codeSniffer
-  shell: pear list -a PHP_CodeSniffer | grep PHP_CodeSniffer || pear install PHP_CodeSniffer
-  ignore_errors: True
-  
 - name: Composer
   shell: curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer creates=/usr/local/bin/composer
 

@@ -6,7 +6,10 @@
 # this file.
 
 # Ensure drush is available.
-which drush > /dev/null || alias drush &> /dev/null || return
+
+# This check does not work because drush installed to home directory
+# and PATH variable is not set yet at the moment.
+# which drush > /dev/null || alias drush &> /dev/null || return
 
 __drush_ps1() {
   f="${TMPDIR:-/tmp/}/drush-env/drush-drupal-site-$$"
