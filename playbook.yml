@@ -22,6 +22,8 @@
     - phpmyadmin
     - adminer
     - drupal
-    - postgres
-    - postgis
     - nfs-server
+### Optional components ###
+    #- postgres
+    #- postgis
+
