@@ -8,6 +8,7 @@
     - unzip
     - mc
     - sqlite3
+    - tree
 
 - name: Install dot files
   copy: src={{ item }} dest=/home/vagrant/.{{ item }}
