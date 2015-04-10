@@ -110,9 +110,7 @@ fi
 
 
 cd /var/www
-#export LC_ALL="en_US.UTF-8"
 
-echo '-----------------';
 function parse_git_branch {
    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\[\1\]/' 
 } 
