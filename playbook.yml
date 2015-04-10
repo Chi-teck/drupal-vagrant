@@ -11,6 +11,8 @@
     apt: update_cache=yes cache_valid_time=3600
 
   post_tasks:
+  - name: Change files owner on vagrant home directory
+    file: path=/var/www owner=vagrant group=vagrant recurse=yes
   - name: Change files owner on document root
     file: path=/var/www owner=vagrant group=vagrant recurse=yes
 
