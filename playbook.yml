@@ -16,12 +16,12 @@
 
   roles:
     - common
-    - amp
-    - php-additions
-    - xdebug
-    - phpmyadmin
-    - adminer
-    - drupal
+    #- amp
+    #- php-additions
+    #- xdebug
+    #- phpmyadmin
+    #- adminer
+    #- drupal
     #- postgres
     #- postgis
-    - nfs-server
+    #- nfs-server

@@ -16,7 +16,7 @@ Basic web development stack using Ansible for provisioning.
 * adminer
 * xdebug
 * composer
-* drush, drush completion, drupalcs
+* drush, drush completion, drupalcs, drupal code generator, drupal console
 * postgres
 * postgis
 * nfs-server

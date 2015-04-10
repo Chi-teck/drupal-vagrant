@@ -22,7 +22,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Enable provisioning with Ansible.
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "playbook.yml"
-    #ansible.verbose = true
+    ansible.verbose = true
     ansible.sudo = true
   end
 end

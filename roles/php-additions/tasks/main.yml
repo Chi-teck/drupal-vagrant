@@ -6,12 +6,12 @@
 
 - name: Create phpmd directory
   file: path=/usr/share/php/phpmd state=directory
-  
+
 - name: Install phpmd
   shell: composer require phpmd/phpmd:@stable -d /usr/share/php/phpmd
-  
+
 - name: Create a symbolic link to the phpmd executable
-  file: src=/usr/share/php/phpmd/vendor/bin/phpmd dest=/usr/bin/phpmd state=link
+  file: src=/usr/share/php/phpmd/vendor/bin/phpmd dest=/usr/local/bin/phpmd state=link
 
 - name: Create a symbolic link to the pdepend executable
-  file: src=/usr/share/php/phpmd/vendor/bin/pdepend dest=/usr/bin/pdepend state=link
+  file: src=/usr/share/php/phpmd/vendor/bin/pdepend dest=/usr/local/bin/pdepend state=link

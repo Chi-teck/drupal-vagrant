@@ -5,7 +5,7 @@
   shell: composer require drush/drush:dev-master -d /usr/share/php/drush
   
 - name: Create a symbolic link to the Drush executable
-  file: src=/usr/share/php/drush/vendor/bin/drush dest=/usr/bin/drush state=link
+  file: src=/usr/share/php/drush/vendor/bin/drush dest=/usr/local/bin/drush state=link
 
 - name: Enable drush completion
   copy: src=drush.complete.sh dest=/etc/bash_completion.d/
@@ -17,13 +17,25 @@
   shell: composer require drupal/coder -d /usr/share/php/coder
   
 - name: Create a symbolic link to the phpcs executable
-  file: src=/usr/share/php/coder/vendor/bin/phpcs dest=/usr/bin/phpcs state=link
+  file: src=/usr/share/php/coder/vendor/bin/phpcs dest=/usr/local/bin/phpcs state=link
   
 - name: Create a symbolic link to the phpcbf executable
-  file: src=/usr/share/php/coder/vendor/bin/phpcbf dest=/usr/bin/phpcbf state=link
+  file: src=/usr/share/php/coder/vendor/bin/phpcbf dest=/usr/local/bin/phpcbf state=link
 
 - name: Install Drupal coding standard
   shell: phpcs --config-set installed_paths /usr/share/php/coder/vendor/drupal/coder/coder_sniffer
+  
+- name: Download the latest stable release of the code generator.
+  get_url: url=https://github.com/Chi-teck/drupal-code-generator/releases/download/1.0.0/dcg.phar dest=/usr/local/bin/dcg
+  
+- name: Make dcg file executable  
+  file: path=/usr/local/bin/dcg mode=0755
+  
+- name: Install drupal console
+  shell: (curl -LSs http://drupalconsole.com/installer | php &&  mv console.phar /usr/local/bin/drupal )
+  
+- name: Move drupal console to bin directory
+  file: src=console.phar dest=/usr/local/bin/drupal
 
 - name: Install DrupalDebug.php
   copy: src=DrupalDebug.php dest=/usr/share/php/DrupalDebug.php owner=root group=root mode=0644
