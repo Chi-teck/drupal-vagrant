@@ -1,7 +1,3 @@
-- name: delete phpmyadmin directory
-  file: path=/var/www/phpmyadmin
-        state=absent
-
 - name: download the source tarball
   get_url: url=http://files.directadmin.com/services/all/phpMyAdmin/phpMyAdmin-{{ phpmyadmin_version }}-all-languages.tar.gz
            dest=/var/www/phpmyadmin-{{ phpmyadmin_version }}.tar.gz
@@ -21,7 +17,7 @@
         state=absent
 
 - name: Create phpmyadmin database
-  shell: mysql -uroot -p{{ mysql_root_password }} < /var/www/phpmyadmin/examples/create_tables.sql
+  shell: mysql -uroot -p{{ mysql_root_password }} < /var/www/phpmyadmin/sql/create_tables.sql
   
 - name: Replace config.inc.php
   template: src=config.inc.php dest=/var/www/phpmyadmin mode=0644
