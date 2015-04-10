@@ -8,7 +8,7 @@ phpmyadmin_version: 4.2.8
 adminer_version: 4.0.0
 
 #
-mysql_root_passwod: 321
+mysql_root_password: 321
 
 #
 drupal_account_name: admin

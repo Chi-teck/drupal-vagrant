@@ -30,7 +30,7 @@ $cfg['Servers'][$i]['auth_type'] = 'config';
 /* Server parameters */
 $cfg['Servers'][$i]['host'] = 'localhost';
 $cfg['Servers'][$i]['user'] = 'root';
-$cfg['Servers'][$i]['password'] = '{{ mysql_root_passwod }}';
+$cfg['Servers'][$i]['password'] = '{{ mysql_root_password }}';
 $cfg['Servers'][$i]['connect_type'] = 'tcp';
 $cfg['Servers'][$i]['compress'] = false;
 /* Select mysql if your server does not have mysqli */
@@ -45,7 +45,7 @@ $cfg['Servers'][$i]['AllowNoPassword'] = true;
 $cfg['Servers'][$i]['controlhost'] = '';
 $cfg['Servers'][$i]['controlport'] = '';
 $cfg['Servers'][$i]['controluser'] = 'root';
-$cfg['Servers'][$i]['controlpass'] = '{{ mysql_root_passwod }}';
+$cfg['Servers'][$i]['controlpass'] = '{{ mysql_root_password }}';
 
 /* Storage database and tables */
 $cfg['Servers'][$i]['pmadb'] = 'phpmyadmin';

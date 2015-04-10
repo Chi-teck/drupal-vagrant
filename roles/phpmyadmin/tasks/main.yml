@@ -21,7 +21,7 @@
         state=absent
 
 - name: Create phpmyadmin database
-  shell: mysql -uroot -p{{ mysql_root_passwod }} < /var/www/phpmyadmin/examples/create_tables.sql
+  shell: mysql -uroot -p{{ mysql_root_password }} < /var/www/phpmyadmin/examples/create_tables.sql
   
 - name: Replace config.inc.php
   template: src=config.inc.php dest=/var/www/phpmyadmin mode=0644

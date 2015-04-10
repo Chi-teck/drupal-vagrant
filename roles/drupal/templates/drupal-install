@@ -1,7 +1,7 @@
 #! /bin/bash
 
 DB_USER=root
-DB_PASS={{ mysql_root_passwod }}
+DB_PASS={{ mysql_root_password }}
 ACCOUNT_NAME={{ drupal_account_name }}
 ACCOUNT_PASS={{ drupal_account_password }}
 
