@@ -20,9 +20,3 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
-
-# set PATH so it includes composer bin if it exists
-if [ -d "$HOME/.composer/vendor/bin" ] ; then
-    PATH="$HOME/.composer/vendor/bin:$PATH"
-fi
-

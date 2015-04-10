@@ -4,7 +4,7 @@
         ui = auto
         grep = auto
 [color "diff"]
-	meta = magenta
+        meta = magenta
 [color "grep"]
         filename   = magenta
         linenumber = green
@@ -26,4 +26,4 @@
 [clean]
         requireForce = false
 [push]
-        default = tracking
+        default = upstream
