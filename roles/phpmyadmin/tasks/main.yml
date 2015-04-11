@@ -1,3 +1,7 @@
+- name: Set phpmyadmin version
+  set_fact:
+    phpmyadmin_version: '4.4.1.1'
+
 - name: download the source tarball
   get_url: url=http://files.directadmin.com/services/all/phpMyAdmin/phpMyAdmin-{{ phpmyadmin_version }}-all-languages.tar.gz
            dest=/var/www/phpmyadmin-{{ phpmyadmin_version }}.tar.gz

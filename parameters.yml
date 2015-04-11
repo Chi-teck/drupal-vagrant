@@ -1,10 +1,8 @@
 #
 server_name: sandbox
 
-server_timezone: Europe/Moscow
-
 #
-phpmyadmin_version: 4.4.1.1
+server_timezone: Europe/Moscow
 
 #
 mysql_root_password: 321
