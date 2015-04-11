@@ -38,7 +38,7 @@
   file: src=console.phar dest=/usr/local/bin/drupal
 
 - name: Install DrupalDebug.php
-  copy: src=DrupalDebug.php dest=/usr/share/php/DrupalDebug.php owner=root group=root mode=0644
+  copy: src=DrupalDebug.php dest=/usr/share/php/DrupalDebug.php mode=0644
 
 - name: Copy drupal-install script
   template: src=d7-install dest=/usr/local/bin/d7-install mode=0755
