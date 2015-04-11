@@ -24,7 +24,7 @@ class d {
 
     if( $method == 'print_r' || $method == 'var_dump') {
       echo self::wrap('begin');
-      call_user_func($method, $arguments[0], $arguments[1]);
+      call_user_func($method, $arguments[0]);
       echo self::wrap('end');
     }
     else {
@@ -69,7 +69,7 @@ class d {
     if($phase == 'begin') {
       return '<pre style="overflow:auto;text-align:left;background:#EEE;padding:5px;margin 5px; border: solid 1px #777">';
     }
-    else if($phase == 'begin') {
+    else if($phase == 'end') {
       return '</pre>';
     }
   }
