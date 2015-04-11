@@ -41,8 +41,8 @@
   copy: src=DrupalDebug.php dest=/usr/share/php/DrupalDebug.php owner=root group=root mode=0644
 
 - name: Copy drupal-install script
-  template: src=drupal-install dest=/usr/local/bin/drupal-install owner=root group=root mode=0755
+  template: src=d7-install dest=/usr/local/bin/d7-install mode=0755
   
 - name: Install drupal
-  shell: (cd /var/www && drupal-install d7)
+  shell: (cd /var/www && d7-install d7)
 
