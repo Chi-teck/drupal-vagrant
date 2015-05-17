@@ -105,6 +105,13 @@ if ! shopt -oq posix; then
   fi
 fi
 
+function d7-prepare() {
+  dir=sites/default
+  cp $dir/default.settings.php $dir/settings.php
+  chmod 777 $dir/settings.php
+  mkdir -m 777 $dir/files
+}
+
 # Navigation between site directories.
 function dcd {
   path=$(drush dd $1)
