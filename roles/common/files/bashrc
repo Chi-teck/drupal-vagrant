@@ -105,7 +105,13 @@ if ! shopt -oq posix; then
   fi
 fi
 
-cd /var/www
+# Navigation between site directories.
+function dcd {
+  path=$(drush dd $1)
+  if [ $path ]; then
+    cd $path
+  fi
+}
 
 function parse_git_branch {
    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\[\1\]/' 
@@ -113,3 +119,5 @@ function parse_git_branch {
 export PS1="\[\e[00;32m\]\u@\h\[\e[0m\]\[\e[00;36m\]:\[\e[0m\]\[\e[00;33m\]\w\[\e[0m\]\[\e[00;36m\]\$(parse_git_branch)\[\e[0m\]\[\e[00;37m\]-> \[\e[0m\]"
 
 alias drupalcs="phpcs --standard=Drupal --extensions='php,module,inc,install,test,profile,theme,js,css,info,txt'"
+
+cd /var/www
