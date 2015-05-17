@@ -2,11 +2,9 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-  config.vm.hostname = "sandbox"
-  
   # php 5.5
-  config.vm.box = "trusty"
-  config.vm.box_url = "http://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-i386-vagrant-disk1.box"
+  config.vm.box = "vivid"
+  config.vm.box_url = "http://cloud-images.ubuntu.com/vagrant/vivid/current/vivid-server-cloudimg-i386-vagrant-disk1.box"
 
   config.vm.network :private_network, ip: "192.168.56.50"
 
@@ -22,7 +20,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Enable provisioning with Ansible.
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "playbook.yml"
-    ansible.verbose = true
+    #ansible.verbose = true
     ansible.sudo = true
   end
 end
