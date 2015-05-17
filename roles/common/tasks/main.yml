@@ -17,6 +17,12 @@
     - gitconfig
     - vimrc
     - profile
+    
+- name: Creates mc directory
+  file: path=/home/vagrant/.config/mc state=directory
+    
+- name: Install mc ini file
+  copy: src=config/mc/ini dest=/home/vagrant/.config/mc/ini
   
 - name: Copy locale
   copy: src=locale dest=/etc/default/locale
