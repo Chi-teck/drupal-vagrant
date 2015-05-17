@@ -28,6 +28,6 @@
     - drupal
     - nfs-server
 ### Optional components ###
-    #- postgres
-    #- postgis
+    - postgres
+    - postgis
 

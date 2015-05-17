@@ -17,8 +17,8 @@
   shell: sudo -upostgres createdb --encoding=UTF8 --locale=en_US.utf8 --owner={{ postgres_account_name }} -T template0 {{ postgres_test_database }}
 
 - name: Set listen_addresses in postgres.conf
-  shell: sed -i "s/.*listen_addresses.*/listen_addresses = '*'/" /etc/postgresql/9.3/main/postgresql.conf
+  shell: sed -i "s/.*listen_addresses.*/listen_addresses = '*'/" /etc/postgresql/9.4/main/postgresql.conf
   
 - name: Add host IP to pg_hba.conf
-  shell: echo "host all all {{ base_ip }}/32 trust" >> /etc/postgresql/9.3/main/pg_hba.conf
+  shell: echo "host all all {{ base_ip }}/32 trust" >> /etc/postgresql/9.4/main/pg_hba.conf
 
