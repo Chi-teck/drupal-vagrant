@@ -1,4 +1,4 @@
-# Vagrant LAMP stack
+# Vagrant LAMP stack for Drupal development
 Basic web development stack using Ansible for provisioning.
 
 ## Requirements
