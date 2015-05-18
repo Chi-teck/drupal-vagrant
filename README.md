@@ -34,7 +34,7 @@ PHP version depends on branch you have cloned.
 * PHP 5.3 - Ubuntu 12.04 LTS (precise)
 * PHP 5.4 - Ubuntu 13.04 (raring) - Not supported anymore
 * PHP 5.5 - Ubuntu 14.04 LTS (trusty)
-* PHP 5.6 - Ubuntu 14.04 (vivid)
+* PHP 5.6 - Ubuntu 15.04 (vivid)
 
 ## Known issues
 
