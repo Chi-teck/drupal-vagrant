@@ -28,6 +28,7 @@
     - drupal
     - nfs-server
 ### Optional components ###
-    - postgres
-    - postgis
+    #- mailcatcher
+    #- postgres
+    #- postgis
 
