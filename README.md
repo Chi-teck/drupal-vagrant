@@ -17,10 +17,10 @@ Basic web development stack using Ansible for provisioning.
 * xdebug
 * composer
 * drush, drush completion, drupalcs, drupal code generator, drupal console
+* nfs-server
 * mailcatcher
 * postgres
 * postgis
-* nfs-server
 
 Not all of these components are enabled by default. Check out playbook.yml and uncomment required roles.
 
