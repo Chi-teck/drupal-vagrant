@@ -26,7 +26,7 @@
   shell: phpcs --config-set installed_paths /usr/share/php/coder/vendor/drupal/coder/coder_sniffer
   
 - name: Download the latest stable release of the code generator.
-  get_url: url=https://github.com/Chi-teck/drupal-code-generator/releases/download/1.0.0/dcg.phar dest=/usr/local/bin/dcg
+  get_url: url=https://github.com/Chi-teck/drupal-code-generator/releases/download/1.2.1/dcg.phar dest=/usr/local/bin/dcg
   
 - name: Make dcg file executable  
   file: path=/usr/local/bin/dcg mode=0755
